@@ -136,6 +136,8 @@ const restauranteCeller = {
         this.ocupacion -= comensales;
         if(this.ocupacion < 0)
             this.ocupacion = 0;
+
+        return `Ocupación actual del restaurante: ${this.ocupacion}`;
     }
 }
 
