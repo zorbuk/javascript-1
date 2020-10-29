@@ -125,7 +125,7 @@ const restauranteCeller = {
     capacidad: 100,
     ocupacion: 75,
     entrar: function (comensales) {
-        if (this.verDisponibilidad(comensales)) {
+        if (!this.verDisponibilidad(comensales)) {
             return `¡No caben más comensales!`;
         } else {
             this.ocupacion += comensales;
@@ -134,16 +134,16 @@ const restauranteCeller = {
     },
     salir: function (comensales) {
         this.ocupacion -= comensales;
-        if(this.verDisponibilidad(comensales))
+        if(!this.verDisponibilidad(comensales))
             this.ocupacion = 0;
 
         return `Ocupación actual del restaurante: ${this.ocupacion}`;
     },
     verDisponibilidad: function(comensales){
         if (this.ocupacion + comensales > this.capacidad || this.ocupacion < 0)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 }
 
