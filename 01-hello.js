@@ -154,3 +154,8 @@ console.log(restauranteCeller.entrar(8));
 console.log(restauranteCeller.entrar(2));
 console.log(restauranteCeller.entrar(2));
 console.log(restauranteCeller.entrar(3));
+console.log(restauranteCeller.entrar(3));
+console.log(restauranteCeller.salir(33));
+console.log(restauranteCeller.salir(36));
+console.log(restauranteCeller.salir(33));
+console.log(restauranteCeller.salir(1));
