@@ -140,12 +140,9 @@ const restauranteCeller = {
         return `Ocupación actual del restaurante: ${this.ocupacion}`;
     },
     verDisponibilidad: function(comensales){
-        if (this.ocupacion + comensales > this.capacidad || this.ocupacion < 0)
-            return false;
-
-        return true;
+        return this.ocupacion + comensales > this.capacidad || this.ocupacion < 0 ? false: true;
     }
-}
+};
 
 console.log(restauranteCeller.entrar(5));
 console.log(restauranteCeller.entrar(5));
