@@ -156,3 +156,130 @@ console.log(restauranteCeller.salir(33));
 console.log(restauranteCeller.salir(36));
 console.log(restauranteCeller.salir(33));
 console.log(restauranteCeller.salir(1));
+
+const arboles = ['pino', 'aveto','eucalipto']
+const cosas = ['lapiz', 22, true, {titulo:'El Quijote',Autor:'Cervantes'}, function(a,b){return a+b}, arboles]
+
+arboles.push('liquidambar styrascrjwelwafdm');
+
+console.log(arboles);
+console.log(arboles[0]);
+console.log(cosas[5][2]);
+console.log(`Tamaño de Array Arboles: ${arboles.length} ~ Tipo: ${typeof arboles}`);
+
+console.log(`--- a ---`);
+console.log(arboles.push());
+console.log(arboles.toString());
+console.log(arboles.join(' * '));
+console.log(arboles.join(' * ').split(' * '));
+console.log(arboles.toString().split(' * '));
+
+const texto = 'Cerezas;Peras;Manzanas;Uvas';
+const frutas = texto.split(';');
+console.log(frutas);
+// Elimina ultimo elemento de un array pero antes lo devuelve.
+console.log(`--- B ---`);
+console.log(arboles.pop());
+
+console.log(`--- C ---`);
+console.log(arboles.unshift('liquidambar styrascrjwelwafdm', 'aveto'));
+
+console.log(`--- D ---`);
+console.log(arboles.shift());
+
+console.log(`--- E ---`);
+const numeros = [1,3,2,4,6,5,7,8,9,0]
+console.log(numeros.sort());
+
+console.log(`--- F ---`);
+const arbolesMasNumeros = arboles.concat(numeros);
+console.log(arbolesMasNumeros);
+
+console.log(`--- G ---`);
+console.log(arbolesMasNumeros);
+console.log(arbolesMasNumeros.splice(2,4));
+console.log(arbolesMasNumeros);
+
+console.log(`--- ! ---`);
+
+const lCase = 'Hola Mundo!';
+console.log(lCase.toLowerCase())
+
+// ¿Dónde empieza eso? 
+console.log(lCase.indexOf('ñ'))
+
+if(lCase.indexOf('ñ') >= 0){
+    console.log(`Saludo contiene la ñ.`);
+}else{
+    console.log(`Saludo no contiene la ñ.`);
+}
+
+const email = `     perico@gmail.com    `;
+console.log(email.trim());
+
+console.log(`--- @ ---`);
+console.log(arboles.indexOf('eucalipto'));
+console.log(arboles.includes('aveto'));
+console.log(arboles.includes('perales'));
+
+// Arrow Function
+const sumar1 = (a, b) => {
+    return a+b;
+}
+
+// Simplificado
+const sumar2 = (a, b) => a+b;
+
+var arbols = ['Aveto', 'Pino', 'Palmera', 'Fresno']
+
+console.log(`--- @ ---`);
+
+arbols.forEach(
+    function(arbol){
+        console.log(arbol);
+    }
+);
+
+console.log(`--- @ ---`);
+
+arbols.forEach(
+    function(arbol){
+        console.log(`${arbols.indexOf(arbol)+1}: ${arbol}`);
+    }
+);
+
+console.log(`--- @ ---`);
+
+arbols.forEach(
+    function(arbol, index){
+        console.log(`${index+1}. ${arbol}`);
+    }
+);
+
+console.log(`--- @ ---`);
+const tareas = [
+    {},
+    { asunto:`hacer los deberes`, completado:false },
+    { asunto:`limpiar la habitación`, completado:false },
+    { asunto:`beber agua`, completado:true }
+];
+
+tareas.push({ asunto: `hacer la compra`, completado: false })
+console.log(tareas.findIndex(
+    function(tarea){
+        return tarea.completado;
+        
+        /*if(buscar.completado === true)
+            console.log(`La tarea ${buscar.asunto} ha sido completada.`);*/
+    }
+));
+
+var localizarTarea = function(tareas, texto){
+    return tareas.findIndex(
+        function(tarea){
+            return tarea.asunto === texto; //Evita espacios
+        }
+    );
+}
+
+//console.log(localizarTarea(tareas, `limpiar la habitación`));
