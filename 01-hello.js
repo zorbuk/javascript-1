@@ -230,7 +230,7 @@ const sumar1 = (a, b) => {
 // Simplificado
 const sumar2 = (a, b) => a+b;
 
-var arbols = ['Aveto', 'Pino', 'Palmera', 'Fresno']
+const arbols = ['Aveto', 'Pino', 'Palmera', 'Fresno']
 
 console.log(`--- @ ---`);
 
@@ -258,7 +258,6 @@ arbols.forEach(
 
 console.log(`--- @ ---`);
 const tareas = [
-    {},
     { asunto:`hacer los deberes`, completado:false },
     { asunto:`limpiar la habitación`, completado:false },
     { asunto:`beber agua`, completado:true }
@@ -274,12 +273,61 @@ console.log(tareas.findIndex(
     }
 ));
 
-var localizarTarea = function(tareas, texto){
+const localizarTarea = function(tareas, texto){
     return tareas.findIndex(
         function(tarea){
-            return tarea.asunto === texto; //Evita espacios
+            return tarea.asunto.toLowerCase() === texto.toLowerCase(); //Evita espacios
         }
     );
 }
 
-//console.log(localizarTarea(tareas, `limpiar la habitación`));
+const localizarTarea2 = function(tareas, texto){
+    return tareas.findIndex(
+        function(tarea){
+            return tarea.asunto.toLowerCase().includes(texto.toLowerCase()); //Evita espacios
+        }
+    );
+}
+
+console.log(localizarTarea(tareas, `limpiar la habitación`));
+
+console.log(saludo.slice(0, saludo.length-1));
+
+console.log(`Antes Splice:`, tareas);
+// ----------Pos Elemento, Elemento Borrar, Elemento
+tareas.splice(1,0, { asunto:`planchar`, completado:false });
+// - Pop, Unshift y Splice devuelven el elemento eliminado.
+console.log(`Desp Splice:`, tareas);
+
+const mostrarTareasPendientes = function(tareas){
+    return tareas.filter(function(_tarea, _indice){
+        return !_tarea.completado;
+    });
+};
+console.log(`--- @ ---`);
+console.log(`Mostrar tareas pendientes: `,mostrarTareasPendientes(tareas));
+
+const mostrarAsuntos = function(tareas){
+    return tareas.map(function(_tareas, _index){
+        // Se pueden devolver objetos también.
+        return _tareas.asunto;
+    });
+};
+
+console.log(`--- @ ---`);
+console.log(`Mostrar asuntos tareas: `,mostrarAsuntos(tareas));
+
+const ordenarAsuntos = function(tareas){
+    return tareas.sort(function(tareaA, tareaB){
+        if(tareaA.asunto.toLowerCase() < tareaB.asunto.toLowerCase()){
+            return -1;
+        }else if(tareaA.asunto.toLowerCase() > tareaB.asunto.toLowerCase()){
+            return 1;
+        }else{
+            return 0;
+        }
+    });
+};
+
+console.log(`--- @ ---`);
+console.log(`Ordenar asuntos tareas: `,ordenarAsuntos(tareas));
