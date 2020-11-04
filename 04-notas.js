@@ -16,6 +16,7 @@ const borrarNota = function(notas, titulo){
     return notas.find(
         function(nota, index){
             if(nota.titulo === titulo){
+                if(index>=1)
                 return notas.splice(index,1);
             }
         }
@@ -49,7 +50,7 @@ const ordenarNotas = function(notas, tipoOrden){
 const buscarTextEnNotas = function(notas, texto){
     return notas.find(
         function(nota){
-            if(nota.asunto === texto || nota.cuerpo === texto)
+            if(nota.titulo.includes(texto) || nota.cuerpo.includes(texto))
             return nota;
         }
     );
@@ -63,6 +64,6 @@ console.log('Creada:', crearNota(notas, `Otra cosa`,`arcade games`));
 console.log('Ordenar por titulo:', ordenarNotas(notas, `titulo`));
 console.log('Ordenar por cuerpo:', ordenarNotas(notas, `cuerpo`));
 
-console.log('Buscar en nota:', buscarTextEnNotas(notas, `yes bro`));
+console.log('Buscar en nota:', buscarTextEnNotas(notas, `bro`));
 
 console.log('Notas final: ',notas);

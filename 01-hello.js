@@ -274,7 +274,7 @@ console.log(tareas.findIndex(
 ));
 
 const localizarTarea = function(tareas, texto){
-    return tareas.findIndex(
+    return tareas.find(
         function(tarea){
             return tarea.asunto.toLowerCase() === texto.toLowerCase(); //Evita espacios
         }
@@ -289,7 +289,7 @@ const localizarTarea2 = function(tareas, texto){
     );
 }
 
-console.log(localizarTarea(tareas, `limpiar la habitación`));
+console.log(`Localizar tarea: `,localizarTarea(tareas, `limpiar la habitación`));
 
 console.log(saludo.slice(0, saludo.length-1));
 
@@ -331,3 +331,24 @@ const ordenarAsuntos = function(tareas){
 
 console.log(`--- @ ---`);
 console.log(`Ordenar asuntos tareas: `,ordenarAsuntos(tareas));
+
+const ordenarTareasPendientesPrimero = function(tareas){
+    return tareas.sort(function(tareaA,tareaB){
+        if(!tareaA.completado && tareaB.completado){
+            return -1;
+        }else if(tareaA.completado && !tareaB.completado){
+            return 1;
+        }else{
+            return 0;
+        }
+    });
+};
+
+console.log(`--- @ ---`);
+console.log(`Ordenar tareas pendientes: `,ordenarTareasPendientesPrimero(tareas));
+
+console.log(`--- @ ---`);
+const numeros2 = [5,2,8,1,3,6,4];
+console.log(`ordenarNumerosMayorMenor`, numeros2.sort(function(a,b){
+    return b-a;
+}));
