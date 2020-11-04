@@ -17,7 +17,6 @@ const borrarNota = function(notas, titulo){
         function(nota, index){
             if(nota.titulo === titulo){
                 return notas.splice(index,1);
-                //return notas.unshift(titulo);
             }
         }
     );
@@ -33,7 +32,7 @@ const ordenarNotas = function(notas, tipoOrden){
             }else{
                 return 0;
             }
-        }else if(tipoOrden == `cuerpo`){
+        }else if(tipoOrden === `cuerpo`){
             if(A.cuerpo < B.cuerpo){
                 return -1;
             }else if(A.cuerpo > B.cuerpo){
@@ -47,7 +46,13 @@ const ordenarNotas = function(notas, tipoOrden){
     });
 };
 // Que devuelva la tarea
-const buscarTextEnNotas = function(){
+const buscarTextEnNotas = function(notas, texto){
+    return notas.find(
+        function(nota){
+            if(nota.asunto === texto || nota.cuerpo === texto)
+            return nota;
+        }
+    );
 };
 
 console.log('Creada:', crearNota(notas, `Truco de VSCode`,`Usar snippets para todo, ctrl+shift+p.`));
@@ -57,5 +62,7 @@ console.log('Creada:', crearNota(notas, `Otra cosa`,`arcade games`));
 
 console.log('Ordenar por titulo:', ordenarNotas(notas, `titulo`));
 console.log('Ordenar por cuerpo:', ordenarNotas(notas, `cuerpo`));
+
+console.log('Buscar en nota:', buscarTextEnNotas(notas, `yes bro`));
 
 console.log('Notas final: ',notas);
